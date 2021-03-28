@@ -1,22 +1,22 @@
 package main
 
 import (
-  
-	"github.com/davecgh/go-spew/spew"
-  "github.com/joho/godotenv"
-  
+	"bufio"
+	"crypto/sha256"
 	"encoding/hex"
-  "os"
+	"encoding/json"
 	"fmt"
 	"io"
-	"log" 
-  "crypto/sha256"
-  "bufio"
-  "time"
+	"log"
+	"math/rand"
 	"net"
+	"os"
+	"strconv"
 	"sync"
-  "strconv"
-  
+	"time"
+
+	"github.com/davecgh/go-spew/spew"
+	"github.com/joho/godotenv"
 )
 
 // Block represents each 'item' in the blockchain
@@ -61,6 +61,9 @@ func main() {
 
 	// start TCP and serve TCP server
 	server, err := net.Listen("tcp", ":"+tcpPort)
+	if err != nil {
+		log.Fatal(err)
+	}
 	log.Println("TCP Server Listening on port :", tcpPort)
 	defer server.Close()
 
@@ -92,6 +95,7 @@ func main() {
 func pickWinner() {
 	time.Sleep(30 * time.Second)
 	mutex.Lock()
+	temp := tempBlocks
 	mutex.Unlock()
 
 	lotteryPool := []string{}
@@ -230,6 +234,10 @@ func isBlockValid(newBlock, oldBlock Block) bool {
 		return false
 	}
 
+	if oldBlock.Hash != newBlock.PrevHash {
+		return false
+	}
+
 	if calculateBlockHash(newBlock) != newBlock.Hash {
 		return false
 	}
@@ -262,6 +270,7 @@ func generateBlock(oldBlock Block, BPM int, address string) (Block, error) {
 	newBlock.Index = oldBlock.Index + 1
 	newBlock.Timestamp = t.String()
 	newBlock.BPM = BPM
+	newBlock.PrevHash = oldBlock.Hash
 	newBlock.Hash = calculateBlockHash(newBlock)
 	newBlock.Validator = address
 
