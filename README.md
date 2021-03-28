@@ -17,17 +17,17 @@ Proof of Stake Blockchain coded in golang.
 - wait a few seconds to see which of the two terminals won.
 - open multiple terminals for `nc localhost 9000` and watch Proof of Stake in action!
 
-### Screenshots
+### Screenshots:
 
-####Genesis Block
+#### Genesis Block
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_3.jpg)
 
-####Token Balance to stake
+#### Token Balance to stake
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_2.jpg)
 
-####Assigned address
+#### Assigned address
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_1.jpg)
 
-####Winner Validator
+#### Winner Validator
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_4.jpg)
 
