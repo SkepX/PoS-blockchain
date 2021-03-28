@@ -19,15 +19,15 @@ Proof of Stake Blockchain coded in golang.
 
 ### Screenshots
 
-Genesis Block
+####Genesis Block
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_3.jpg)
 
-Token Balance to stake
+####Token Balance to stake
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_2.jpg)
 
-Assigned address
+####Assigned address
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_1.jpg)
 
-Winner Validator
+####Winner Validator
 ![screen](https://raw.githubusercontent.com/SkepX/PoS-blockchain/main/images/image_4.jpg)
 
